@@ -12,6 +12,16 @@
                                     'controller' => 'indexController', 
                                     'action' => 'index');
 
+            //Rota inscreverse
+            $routes['inscreverse'] = array('route' => '/inscreverse',
+                                           'controller' => 'indexController',
+                                           'action' => 'inscreverse');
+
+            //Rota cadastrar
+            $routes['cadastrar'] = array('route' => '/cadastrar',
+                                         'controller' => 'IndexController',
+                                         'action' => 'cadastrar');
+
             $this->setRoutes($routes);
         }
 

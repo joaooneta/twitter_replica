@@ -9,7 +9,7 @@
             //Bloco try/catch para conexão com banco
             try{
                 $host = 'localhost';
-                $dbname = 'framework_mvc';
+                $dbname = 'twitter_replica';
                 $user = 'root';
                 $pass = '';
                 $conn = new \PDO(
