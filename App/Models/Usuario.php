@@ -30,6 +30,41 @@
 
             return $this;
         }
+
+        //Validamento do cadastro
+        public function validarCadastro(){
+            $validade = true;
+            
+            //Requisitos cadastro
+            //Nome
+            if(strlen($this->__get('nome')) < 3){
+                $validade = false;
+            }
+
+            //Email
+            if(strlen($this->__get('email') < 10)){
+                $validade = false;
+            }
+
+            //Senha
+            if(strlen($this->__get('senha')) < 8){
+                $validade = false;
+            }
+
+            return $validade;
+
+        }
+
+        //Recupera usuário pelo e-mail
+        public function getUsuarioPorEmail(){
+            $query = 'SELECT id, nome, email, senha FROM usuarios WHERE email = :email;';
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':email', $this->__get('email'));
+            $stmt->execute();
+
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
     }
 
 ?>

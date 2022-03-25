@@ -1,6 +1,15 @@
+<?php
+
+    //Caso a variável erroCadastro esteja populada, informa o erro ao usuário
+    if(isset($this->view->erroCadastro)){
+        echo $this->view->erroCadastro;
+    }
+
+?>
+
 <form action="/cadastrar" method="POST">
-    <input type="text" name="nome" id="nome" placeholder="Nome"><br>
-    <input type="text" name="email" id="email" placeholder="Email"><br>
-    <input type="password" name="senha" id="senha" placeholder="senha"><br>
+    <input type="text" name="nome" id="nome" placeholder="Nome" value="<?php if(isset($this->view->usuario)){echo $this->view->usuario->__get('nome');} ?>"><br>
+    <input type="text" name="email" id="email" placeholder="Email" value="<?php if(isset($this->view->usuario)){echo $this->view->usuario->__get('email');} ?>"><br>
+    <input type="password" name="senha" id="senha" placeholder="senha" value="<?php if(isset($this->view->usuario)){echo $this->view->usuario->__get('senha');} ?>"><br>
     <input type="submit" value="Cadastrar">
 </form>
