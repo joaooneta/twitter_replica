@@ -9,6 +9,7 @@
         //Action PATH index
         public function index(){
 
+            $this->view->login = isset($_GET['login']) ? 'E-mail ou senha informados estão incorretos!' : '';
             $this->render('index');
         }
 

@@ -22,6 +22,11 @@
                                          'controller' => 'IndexController',
                                          'action' => 'cadastrar');
 
+            //Rota logar
+            $routes['logar'] = array('route' => '/logar',
+                                         'controller' => 'AuthController',
+                                         'action' => 'logar');
+
             $this->setRoutes($routes);
         }
 

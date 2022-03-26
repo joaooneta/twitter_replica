@@ -22,7 +22,19 @@
             <h5>Ao se inscrever, você concorda com os Termos de Serviço e a Política de Privacidade, incluindo o Uso de Cookies.</h5>
 
             <h3>Já tem uma conta?</h3>
-            <button>Entrar</button>
+            <button>Entrar</button><br>
+
+            <form action="/logar" method="POST">
+                <input type="text" name="email" id="email" placeholder="E-mail"><br>
+                <input type="password" name="senha" id="senha" placeholder="Senha"><br>
+                <input type="submit" value="Logar">
+            </form>
+            <?php
+                //Caso autenticação não ocorra será informado está mensagem de erro
+                if(isset($this->view->login)){
+                    echo '<h1>' . $this->view->login . '</h1>';
+                }
+            ?>
         </div>
 
         <footer>
