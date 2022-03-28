@@ -4,60 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Twitter</title>
 </head>
 <body>
-    <main class="container">
-        <div class="img">
-            <img src="/img/logo.svg" alt="logo">
-        </div>
-        <div class="menu">
-            <h1>Acontendo agora</h1>
-            <h2>Inscreva-se no Twitter hoje mesmo.</h2>
+    
+    <main id="home">
 
-            <button>Inscrever-se no Google</button>
-            <button>Inscrever-se com Apple</button>
-            <p>ou</p>
-            <button><a href="/inscreverse">Inscrever-se com e-mail</a></button>
-            <h5>Ao se inscrever, você concorda com os Termos de Serviço e a Política de Privacidade, incluindo o Uso de Cookies.</h5>
-
-            <h3>Já tem uma conta?</h3>
-            <button>Entrar</button><br>
-
+        <div id="container">
+            <div id="image"> 
+                <img src="img/background-index.png" alt="Background image" id="background">
+                <img src="img/bird-svg.svg" alt="" id="big-bird">
+            </div>
+            <div id="content">
             <form action="/logar" method="POST">
                 <input type="text" name="email" id="email" placeholder="E-mail"><br>
                 <input type="password" name="senha" id="senha" placeholder="Senha"><br>
                 <input type="submit" value="Logar">
             </form>
+            <a href="/inscreverse">Registrar</a>
             <?php
                 //Caso autenticação não ocorra será informado está mensagem de erro
                 if(isset($this->view->login)){
                     echo '<h1>' . $this->view->login . '</h1>';
                 }
             ?>
+            </div>
         </div>
 
-        <footer>
-            <span>Sobre</span>
-            <span>Central de Ajuda</span>
-            <span>Termos de Serviço</span>
-            <span>Política de Privacidade</span>
-            <span>Política de cookies</span>
-            <span>Acessibilidade</span>
-            <span>Informações de anúncios</span>
-            <span>Blog</span>
-            <span>Status</span>
-            <span>Carreiras</span>
-
-            <span>Recursos da marca</span>
-            <span>Publicidade</span>
-            <span>Twitter para Empresas</span>
-            <span>Desenvolvedores</span>
-            <span>Diretório</span>
-            <span>Configurações</span>
-            <span>© 2022 Twitter, Inc.</span>
-        </footer>
-
     </main>
+
+    <footer>
+        <span>Sobre</span>
+        <span>Central de Ajuda</span>
+        <span>Termos de Serviço</span>
+        <span>Política de Privacidade</span>
+        <span>Política de cookies</span>
+        <span>Acessibilidade</span>
+        <span>Informações de Anúncios</span>
+        <span>Blog</span>
+        <span>Status</span>
+        <span>Carreiras</span>
+        <span>Recursos da marca</span>
+        <span>Publicidade</span>
+        <span>Marketing</span>
+        <span>Twitter para Empresas</span>
+        <span>Desenvolvedores</span>
+        <span>Diretório</span>
+        <span>Configurações</span>
+        <span>
+            © 2022 Twitter, Inc.</span>
+    </footer>
 </body>
 </html>
