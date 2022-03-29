@@ -28,6 +28,7 @@
             if($usuario->validarCadastro()){
                 //Procura outro usuário com mesmo e-mail
                 if(count($usuario->getUsuarioPorEmail()) == 0){
+                    $usuario->__set('senha', md5($_POST['senha']));
                     $usuario->salvar();
                     $this->render('cadastro');
                 }else{

@@ -10,7 +10,7 @@
         public function logar(){
             $usuario = Container::getModel('usuario'); 
             $usuario->__set('email', $_POST['email'])
-                    ->__set('senha', $_POST['senha']);
+                    ->__set('senha', md5($_POST['senha']));
 
             $usuario->autenticar();
 
