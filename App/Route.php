@@ -24,8 +24,18 @@
 
             //Rota logar
             $routes['logar'] = array('route' => '/logar',
-                                         'controller' => 'AuthController',
-                                         'action' => 'logar');
+                                     'controller' => 'AuthController',
+                                     'action' => 'logar');
+
+            //Rota timeline
+            $routes['timeline'] = array('route' => '/timeline',
+                                        'controller' => 'AppController',
+                                        'action' => 'timeline');
+
+            //Rota sair
+            $routes['sair'] = array('route' => '/sair',
+                                    'controller' => 'AuthController',
+                                    'action' => 'sair');
 
             $this->setRoutes($routes);
         }
