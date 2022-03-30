@@ -37,6 +37,11 @@
                                     'controller' => 'AuthController',
                                     'action' => 'sair');
 
+            //Rota tweet
+            $routes['tweet'] = array('route' => '/tweet',
+                                     'controller' => 'AppController',
+                                     'action' => 'twittar');
+
             $this->setRoutes($routes);
         }
 

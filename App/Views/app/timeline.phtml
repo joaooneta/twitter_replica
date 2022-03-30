@@ -2,3 +2,8 @@
     echo '<h1>Timeline de ' . $_SESSION['nome'] . '</h1>';
 ?>
 <a href="/sair">Sair</a>
+
+<form action="/tweet" method="POST">
+    <textarea name="tweet" id="tweet" cols="30" rows="10"></textarea>
+    <input type="submit" value="Twittar">
+</form>
