@@ -7,3 +7,16 @@
     <textarea name="tweet" id="tweet" cols="30" rows="10"></textarea>
     <input type="submit" value="Twittar">
 </form>
+
+<hr>
+
+<?php
+
+    foreach($this->view->tweets as $key => $tweet){
+        echo '<h1>' . $tweet['nome'] . '</h1>';
+        echo '<p>' . $tweet['tweet'] . '</p>';
+        echo '<p>Data:' . $tweet['data'] . '</p>';
+        echo '<hr>'; 
+    }
+
+?>

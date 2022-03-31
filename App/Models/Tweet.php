@@ -18,8 +18,18 @@
       return $this;
     }
 
-    public function getTweet(){
-
+    public function getAll(){
+      $query = "SELECT tweet.id, tweet.id_usuario, tweet.tweet, tweet.data, usuario.nome
+                FROM tweets AS tweet
+                LEFT JOIN usuarios AS usuario
+                ON (tweet.id_usuario = usuario.id)
+                WHERE tweet.id_usuario = :id_usuario
+                ORDER BY tweet.data DESC;";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+      $stmt->execute();
+      
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function setTweet(){

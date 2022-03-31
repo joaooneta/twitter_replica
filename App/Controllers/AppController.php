@@ -12,6 +12,12 @@
 
             //Verifica se o usuário que está tentando acessar a página passou pelo processo de autenticação
             if($_SESSION['id'] != null && $_SESSION['nome'] != null){
+                $tweet = Container::getModel('tweet');
+                $tweet->__set('id_usuario', $_SESSION['id']);
+                $tweets = $tweet->getAll();
+
+                $this->view->tweets = $tweets;
+
                 $this->render('timeline');
             }else{
                 header('Location:/?login=erro');
