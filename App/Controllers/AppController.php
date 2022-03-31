@@ -8,33 +8,32 @@
     class AppController extends Action{
 
         public function timeline(){
-            session_start();
+            $this->validaLogin();
 
-            //Verifica se o usuário que está tentando acessar a página passou pelo processo de autenticação
-            if($_SESSION['id'] != null && $_SESSION['nome'] != null){
-                $tweet = Container::getModel('tweet');
-                $tweet->__set('id_usuario', $_SESSION['id']);
-                $tweets = $tweet->getAll();
+            $tweet = Container::getModel('tweet');
+            $tweet->__set('id_usuario', $_SESSION['id']);
+            $tweets = $tweet->getAll();
 
-                $this->view->tweets = $tweets;
+            $this->view->tweets = $tweets;
 
-                $this->render('timeline');
-            }else{
-                header('Location:/?login=erro');
-            }
-            
+            $this->render('timeline');
         }
 
         public function twittar(){
+            $this->validaLogin();
+
+            $tweet = Container::getModel('tweet');
+            $tweet->__set('tweet', $_POST['tweet'])
+                  ->__set('id_usuario', $_SESSION['id']);
+            $tweet->setTweet();
+            header('Location:/timeline');
+        }
+
+        public function validaLogin(){
             session_start();
 
-            //Verifica se o usuário que está tentando acessar a página passou pelo processo de autenticação
             if($_SESSION['id'] != null && $_SESSION['nome'] != null){
-                $tweet = Container::getModel('tweet');
-                $tweet->__set('tweet', $_POST['tweet'])
-                      ->__set('id_usuario', $_SESSION['id']);
-                $tweet->setTweet();
-                header('Location:/timeline');
+                return true;
             }else{
                 header('Location:/?login=erro');
             }
