@@ -42,6 +42,11 @@
                                      'controller' => 'AppController',
                                      'action' => 'twittar');
 
+            //Rota buscar_conhecidos
+            $routes['buscar_conhecidos'] = array('route' => '/buscar_conhecidos',
+                                                 'controller' => 'AppController',
+                                                 'action' => 'buscarConhecidos');
+
             $this->setRoutes($routes);
         }
 

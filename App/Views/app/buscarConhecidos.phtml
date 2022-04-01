@@ -1,0 +1,19 @@
+<form method="GET" action="/buscar_conhecidos">
+  <input type="text" name="nome" id="nome" placeholder="Busque por um nome">
+  <button type="submit">Buscar</button>
+</form>
+<hr>
+
+<?php
+
+  if(!empty($this->view->usuarios)){
+    echo '<h1>Resultados da busca por: ' . $_GET['nome'] . '</h1>';
+    echo '<hr>';
+    foreach($this->view->usuarios as $key => $usuario){
+      echo '<p>Nome: ' . $usuario['nome'] . '</p>';
+      echo '<p>Email: ' . $usuario['email'] . '</p>';
+      echo '<hr>';
+    }
+  }
+
+?>

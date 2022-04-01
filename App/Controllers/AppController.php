@@ -38,6 +38,19 @@
                 header('Location:/?login=erro');
             }
         }
+
+        public function buscarConhecidos(){
+            $nomeBusca = isset($_GET['nome']) ? $_GET['nome'] : '';
+            $usuarios = array();
+            if($nomeBusca != ''){
+                $usuario = Container::getModel('usuario');
+                $usuario->__set('nome', $nomeBusca);
+                $usuarios = $usuario->getAll();
+            }
+
+            $this->view->usuarios = $usuarios;
+            $this->render('buscarConhecidos');
+        }
     }
 
 ?>
