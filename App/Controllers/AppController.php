@@ -40,11 +40,15 @@
         }
 
         public function buscarConhecidos(){
+            //Inicia sessão para que seja possível recuperar o valor do id do usuário logado no momento
+            session_start();
+
             $nomeBusca = isset($_GET['nome']) ? $_GET['nome'] : '';
             $usuarios = array();
             if($nomeBusca != ''){
                 $usuario = Container::getModel('usuario');
                 $usuario->__set('nome', $nomeBusca);
+                $usuario->__set('id', $_SESSION['id']);
                 $usuarios = $usuario->getAll();
             }
 
