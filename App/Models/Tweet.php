@@ -24,6 +24,7 @@
                 LEFT JOIN usuarios AS usuario
                 ON (tweet.id_usuario = usuario.id)
                 WHERE tweet.id_usuario = :id_usuario
+                OR tweet.id_usuario IN (SELECT id_usuario FROM seguidores WHERE id_usuario_seguidor = :id_usuario)
                 ORDER BY tweet.data DESC;";
       $stmt = $this->db->prepare($query);
       $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));

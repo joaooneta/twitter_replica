@@ -71,6 +71,8 @@
             }else{
                 header('Location:/timeline');
             }
+
+            header('Location:/timeline');
         }
     }
 
