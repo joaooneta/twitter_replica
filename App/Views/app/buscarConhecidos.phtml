@@ -12,6 +12,8 @@
     foreach($this->view->usuarios as $key => $usuario){
       echo '<p>Nome: ' . $usuario['nome'] . '</p>';
       echo '<p>Email: ' . $usuario['email'] . '</p>';
+      echo '<a href="/seguir?info=true&id_usuario=' . $usuario['id'] . '">Seguir</a>   ';
+      echo '<a href="/seguir?info=false&id_usuario=' . $usuario['id'] . '">Deixar de seguir</a>';
       echo '<hr>';
     }
   }

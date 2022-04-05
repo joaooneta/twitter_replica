@@ -47,6 +47,11 @@
                                                  'controller' => 'AppController',
                                                  'action' => 'buscarConhecidos');
 
+            //Rota seguir
+            $routes['seguir'] = array('route' => '/seguir',
+                                      'controller' => 'AppController',
+                                      'action' => 'seguir');
+
             $this->setRoutes($routes);
         }
 

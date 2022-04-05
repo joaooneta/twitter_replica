@@ -55,6 +55,23 @@
             $this->view->usuarios = $usuarios;
             $this->render('buscarConhecidos');
         }
+
+        public function seguir(){
+            $this->validaLogin();
+
+            if(isset($_GET['id_usuario']) && isset($_GET['info'])){
+                $seguir = Container::getModel('seguidores');
+                $seguir->__set('id_usuario', $_GET['id_usuario'])
+                       ->__set('id_usuario_seguidor', $_SESSION['id']);
+                if($_GET['info'] == 'true'){
+                    $seguir->seguir();
+                }else{
+                    $seguir->deixarDeSeguir();
+                }
+            }else{
+                header('Location:/timeline');
+            }
+        }
     }
 
 ?>
