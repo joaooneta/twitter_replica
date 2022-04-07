@@ -1,6 +1,9 @@
 <?php
     echo '<h1>Timeline de ' . $_SESSION['nome'] . '</h1>';
 ?>
+<p>Seguidores:<?php echo $this->view->numeroSeguidores; ?></p>
+<p>Seguindo:<?php echo $this->view->numeroSeguindo; ?></p>
+<p>Tweets:<?php echo $this->view->numeroTweets; ?></p>
 <a href="/sair">Sair</a>
 
 <form action="/tweet" method="POST">

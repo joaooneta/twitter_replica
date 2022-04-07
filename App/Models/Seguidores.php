@@ -32,6 +32,24 @@
       $stmt->bindValue(':id_usuario_seguidor', $this->__get('id_usuario_seguidor'));
       $stmt->execute();
     }
+
+    public function getSeguidores(){
+      $query = 'SELECT COUNT(id) FROM seguidores WHERE id_usuario = :id_usuario;';
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+      $stmt->execute();
+
+      return $stmt->fetchColumn();
+    }
+
+    public function getSeguindo(){
+      $query = 'SELECT COUNT(id) FROM seguidores WHERE id_usuario_seguidor = :id_usuario_seguidor;';
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario_seguidor', $this->__get('id_usuario_seguidor'));
+      $stmt->execute();
+
+      return $stmt->fetchColumn();
+    }
   }
 
 ?>

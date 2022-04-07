@@ -9,12 +9,25 @@
 
         public function timeline(){
             $this->validaLogin();
-
+            $id_usuario = $_SESSION['id'];
+            
             $tweet = Container::getModel('tweet');
-            $tweet->__set('id_usuario', $_SESSION['id']);
-            $tweets = $tweet->getAll();
+            $tweet->__set('id_usuario', $id_usuario);
 
+            $tweets = $tweet->getAll();
             $this->view->tweets = $tweets;
+
+            $numeroTweets = $tweet->getNumeroTweets();
+            $this->view->numeroTweets = $numeroTweets;
+
+            $seguidores = Container::getModel('seguidores');
+            $seguidores->__set('id_usuario', $id_usuario);
+            $numeroSeguidores = $seguidores->getSeguidores();
+            $this->view->numeroSeguidores = $numeroSeguidores;
+
+            $seguidores->__set('id_usuario_seguidor', $id_usuario);
+            $numeroSeguindo = $seguidores->getSeguindo();
+            $this->view->numeroSeguindo = $numeroSeguindo;
 
             $this->render('timeline');
         }

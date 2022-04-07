@@ -58,6 +58,15 @@
       $stmt->bindValue(':id', $this->__get('id'));
       $stmt->execute();
     }
+
+    public function getNumeroTweets(){
+      $query = "SELECT COUNT(id) FROM tweets WHERE id_usuario = :id_usuario;";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+      $stmt->execute();
+
+      return $stmt->fetchColumn();
+    }
   }
 
 ?>
