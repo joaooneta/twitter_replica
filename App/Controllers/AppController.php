@@ -74,6 +74,20 @@
 
             header('Location:/timeline');
         }
+
+        public function remover(){
+            $this->validaLogin();
+            
+            $id_tweet = isset($_GET['id']) ? $_GET['id'] : '';
+            $tweet = Container::getModel('tweet');
+            $tweet->__set('id', $id_tweet);
+            if($_SESSION['id'] == $tweet->getIdUsuario()){
+                $tweet->deleteTweet(); 
+                echo 'Removido!'; 
+            }
+            
+            header('Location:/timeline');
+        }
     }
 
 ?>

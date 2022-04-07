@@ -42,6 +42,22 @@
 
       return $this;
     }
+
+    public function getIdUsuario(){
+      $query = "SELECT id_usuario FROM tweets WHERE id = :id;";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id', $this->__get('id'));
+      $stmt->execute();
+
+      return $stmt->fetchColumn();
+    }
+
+    public function deleteTweet(){
+      $query = "DELETE FROM tweets WHERE id = :id;";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id', $this->__get('id'));
+      $stmt->execute();
+    }
   }
 
 ?>

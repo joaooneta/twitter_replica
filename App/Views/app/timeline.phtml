@@ -16,6 +16,13 @@
         echo '<h1>' . $tweet['nome'] . '</h1>';
         echo '<p>' . $tweet['tweet'] . '</p>';
         echo '<p>Data:' . $tweet['data'] . '</p>';
+        if($_SESSION['id'] == $tweet['id_usuario']){
+            ?>
+            <form action="/remover?id=<?php echo $tweet['id']; ?>" method="POST">
+                <button type="submit">REMOVER</button>
+            </form>
+            <?php
+        }
         echo '<hr>'; 
     }
 

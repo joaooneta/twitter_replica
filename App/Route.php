@@ -52,6 +52,11 @@
                                       'controller' => 'AppController',
                                       'action' => 'seguir');
 
+            //Rota remover
+            $routes['remover'] = array('route' => '/remover',
+                                       'controller' => 'AppController',
+                                       'action' => 'remover');
+
             $this->setRoutes($routes);
         }
 
