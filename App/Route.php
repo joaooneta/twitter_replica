@@ -56,6 +56,11 @@
             $routes['remover'] = array('route' => '/remover',
                                        'controller' => 'AppController',
                                        'action' => 'remover');
+                                       
+            //Rota usuário
+            $routes['usuario'] = array('route' => '/usuario',
+                                       'controller' => 'AppController',
+                                       'action' => 'perfil'); 
 
             $this->setRoutes($routes);
         }

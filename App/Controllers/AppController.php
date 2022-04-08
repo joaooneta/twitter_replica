@@ -101,6 +101,27 @@
             
             header('Location:/timeline');
         }
+
+        public function perfil(){
+            $this->validaLogin();
+
+            $usuario = Container::getModel('usuario');
+            $usuario->__set('id', $_GET['id_usuario']);
+            $perfil = $usuario->getUsuarioPorId();
+
+            $tweet = Container::getModel('tweet');
+            $tweet->__set('id_usuario', $_GET['id_usuario']);
+            $tweets = $tweet->getTweetsPorId();
+
+            if($perfil != NULL && $_GET['id_usuario'] != $_SESSION['id']){
+                $this->view->perfil = $perfil;
+                $this->view->tweets = $tweets;
+    
+                $this->render('perfil');
+            }else{
+                header('Location:/timeline');
+            }
+        }
     }
 
 ?>

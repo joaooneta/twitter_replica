@@ -1,0 +1,22 @@
+<h1>Perfil</h1>
+
+<?php
+  echo '<p>Nome:' . $this->view->perfil['nome'] . '</p>';
+  echo '<p>Email:' . $this->view->perfil['email'] . '</p>';
+  echo '<hr>';
+?>
+
+<h1>Tweets</h1>
+
+<?php
+  if($this->view->tweets != NULL){
+  foreach($this->view->tweets as $key => $tweet){
+      echo '<h2>' . $this->view->perfil['nome'] . '</h2>';
+      echo '<p>' . $tweet['tweet'] . '</p>';
+      echo '<hr>';
+    }
+  }else{
+    echo '<h2>O usuário ainda não realizou nenhum Tweet!</h2>';
+  }
+  
+?>

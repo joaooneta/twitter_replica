@@ -16,7 +16,11 @@
 <?php
 
     foreach($this->view->tweets as $key => $tweet){
-        echo '<h1>' . $tweet['nome'] . '</h1>';
+        if($_SESSION['id'] != $tweet['id_usuario']){
+            echo '<h1><a href="/usuario?id_usuario=' . $tweet['id_usuario'] .'">' . $tweet['nome'] . '</a></h1>';
+        }else{
+            echo '<h1>' . $tweet['nome'] . '</h1>';
+        }
         echo '<p>' . $tweet['tweet'] . '</p>';
         echo '<p>Data:' . $tweet['data'] . '</p>';
         if($_SESSION['id'] == $tweet['id_usuario']){

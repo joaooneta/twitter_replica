@@ -67,6 +67,15 @@
 
       return $stmt->fetchColumn();
     }
+
+    public function getTweetsPorId(){
+      $query = "SELECT tweet FROM tweets WHERE id_usuario = :id_usuario";
+      $stmt = $this->db->prepare($query);
+      $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+      $stmt->execute();
+
+      return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
   }
 
 ?>
